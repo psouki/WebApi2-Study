@@ -1,0 +1,88 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title - devBeer Shop</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+    <div>
+        <header id="mainHeader">
+            <div>
+                <a class="headerLogo" href="/Views/Home/">
+                    <img src="~/Images/logoSmall.png" />
+                </a>
+                <span id="headerName">devBeer Shop</span>
+            </div>
+            <nav>
+                <ul>
+                    <li>
+                        <a class="navLink" href="~/Home">Home</a>
+                        <a class="navLink" href="~/AllBeers">Our Beers</a>
+                        <a class="navLink" href="~/Gift">Gifts</a>
+                        <a class="navLink" href="~/Ranking">Ranking</a>
+                        <a class="navLink" href="~/FindUs">Find us</a>
+                        <a class="navLink" href="~/Gallery">Gallery</a>
+                        <a class="navLink" href="~/CheckOut">Checkout</a>
+                    </li>
+                </ul>
+            </nav>
+        </header>
+        <div id="mainContent">
+            <div class="row brownComplement">
+                <div class="col-md-5">
+                    <div id="welcomeImage">
+                        <img src="~/Images/beer-header.jpg" />
+                    </div>
+                </div>
+
+                <div class="col-md-3 hidden-sm">
+                    <div id="beerOfTheMonth">
+                        <img src="~/Images/beerMonth.png" />
+                    </div>
+                </div>
+
+                <div class="col-md-3">
+                    <div id="shoppingCart">
+                        <header class="blockHeader">
+                            <span>Shopping Cart</span>
+                            <ul></ul>
+                        </header>
+                    </div>
+                </div>
+            </div>
+
+            <div class="main-content">
+                @RenderBody()
+            </div>
+            <footer class="brownComplement">
+                <p class="textContent">
+                    Address: <address>13, Main Street, 90120 San Andreas</address>
+                </p>
+                <p class="smallText">
+                    This page was generated on <time>10:21:03.123</time>
+                </p>
+                <div class="smallText">
+                    Beer Draft Font made from <a href="http://www.onlinewebfonts.com">oNline Web Fonts</a> is licensed by CC BY 3.0
+                </div>
+                <p>&copy; @DateTime.Now.Year - devBeer</p>
+            </footer>
+        </div>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/bundles/own")
+    @RenderSection("scripts", required: false)
+
+<script>
+    $(document).ready(function() {
+        ShoppingCart.display();
+    });
+</script>
+
+   
+</body>
+</html>

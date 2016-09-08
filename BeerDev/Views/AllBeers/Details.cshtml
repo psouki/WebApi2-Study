@@ -1,0 +1,98 @@
+﻿
+@{
+    ViewBag.Title = "Details";
+}
+
+<section class="beerDetails">
+    <header class="blockHeaderBeer">
+        <span></span>
+    </header>
+    <article>
+        <div class="row">
+            <div class="col-sm-8">
+                <div>
+                    <figure>
+                        <img class="productArticleLargeImage"/>
+                        <figcaption></figcaption>
+                    </figure>
+                </div>
+            </div>
+            <div class="col-sm-3">
+                <div class="info">
+                    Hover to Discover:
+                    <div class="flipContainer">
+                        <div class="front anim">Nationality</div>
+                        <div class="back anim"></div>
+                    </div>
+                    <div class="flipContainer">
+                        <div class="front anim">Category</div>
+                        <div class="back anim"></div>
+                    </div>
+                    <div class="flipContainer">
+                        <div class="front anim">Alchool</div>
+                        <div class="back anim"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </article>
+    <div class="productArticleContent">
+        <div class="row">
+            <div class="col-sm-7">
+                <div class="well">
+                    <p class="productArticleDescription text-left"></p>
+                </div>
+            </div>
+            <div class="col-sm-3">
+                <p class="productArticlePrice priceDetail"></p>
+            </div>
+        </div>
+    </div>
+    <div>
+        <video width="320" height="240" class="beerPlayer" id="videoPlayer" poster="~/Images/pilsnerUrquellVideo.jpg">
+            <source src="~/Media/PilsnerUrquell.mp4" type="video/mp4"/>
+            <source src="~/Media/PilsnerUrquell.webm" type="video/webm"/>
+        </video>
+        <div id="playControls">
+            <div id="slower"><i class="glyphicon glyphicon-minus"></i>
+            </div>
+            <div id="rew"><i class="glyphicon glyphicon-backward"></i>
+            </div>
+            <div id="stop"> <i class="glyphicon glyphicon-stop"></i>
+            </div>
+            <div id="play"><i class="glyphicon glyphicon-play"></i>
+            </div>
+            <div id="fwd"><i class="glyphicon glyphicon-forward"></i>
+            </div>
+            <div id="faster"><i class="glyphicon glyphicon-plus"></i>
+            </div>
+            <div id="mute"><i class="glyphicon glyphicon-volume-off"></i>
+            </div>
+        </div>
+    </div>
+
+</section>
+
+<h1 class="text-center">
+    <span class="label label-warning">Sales by Month</span>
+</h1>
+
+<div id="salesChart">
+    <canvas id="salesChartBar" height="310" width="700">
+        Sorry your browser do not support canvas.
+    </canvas>
+</div>
+
+@section Scripts{
+    <script src="~/Scripts/Own/videoPlayer.js"></script>
+    <script src="~/Scripts/Own/canvasChart.js"></script>
+    <script src="~/Scripts/Own/beerDetail.js"></script>
+    <script>
+        $(document).ready(function () {
+            loadPage();
+            playerControls();
+            drawChart();
+        });
+    </script>
+}
+

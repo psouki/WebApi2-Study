@@ -1,0 +1,25 @@
+﻿
+@{
+    ViewBag.Title = "Find us";
+}
+
+
+<section class="FindUs">
+    <header class="blockHeader">
+        <span>Come to our real-life store!</span>
+    </header>
+
+    <div id="googleMap"></div>
+</section>
+
+
+@section Scripts{
+    <script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyBEzgJBMiyyKjOjlfJTRFN1gOYXH50KPfA"></script>
+    <script src="~/Scripts/own/geoPosition.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            createDrivingDirections();
+        });
+    </script>
+}

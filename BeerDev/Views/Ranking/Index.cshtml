@@ -1,0 +1,26 @@
+﻿
+@{
+    ViewBag.Title = "Ranking";
+}
+
+<section class="ranking">
+    <header class="blockHeader">
+        <p> Beer Ranking</p>
+        <p>Drag and Drop to make your own ranking choices</p>
+    </header>
+    <article>
+        <ul id="rankingList"></ul>
+    </article>
+</section>
+
+@section Scripts{
+    <script src="~/Scripts/own/ranking.js"></script>
+    <script>
+        $(document).ready(function() {
+            loadRanking();
+        });
+    </script>
+    
+}
+
+
