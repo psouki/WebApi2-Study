@@ -252,6 +252,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Handlers\ImageConvertHandler.cs" />
     <Compile Include="Models\AccountBindingModels.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Beer.cs" />
@@ -285,6 +286,7 @@
     <Content Include="Images\logoSmall.png" />
     <Content Include="Images\paulistania.jpg" />
     <Content Include="Images\paulistaniaTb.jpg" />
+    <Content Include="Images\pilsener_urquell.bmp" />
     <Content Include="Images\pilsener_urquell.jpg" />
     <Content Include="Images\pilsener_urquellTb.jpg" />
     <Content Include="Images\pilsnerUrquellVideo.jpg" />
