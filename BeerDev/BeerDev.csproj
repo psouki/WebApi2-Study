@@ -255,15 +255,20 @@
     <Compile Include="Handlers\ImageConvertHandler.cs" />
     <Compile Include="Models\AccountBindingModels.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
-    <Compile Include="Models\Beer.cs" />
-    <Compile Include="Models\Gift.cs" />
-    <Compile Include="Models\GiftPromo.cs" />
+    <Compile Include="Models\BeerVm.cs" />
+    <Compile Include="Models\GalleryVm.cs" />
+    <Compile Include="Models\GiftVm.cs" />
+    <Compile Include="Models\GiftPromoVm.cs" />
     <Compile Include="Models\IdentityModels.cs" />
-    <Compile Include="Models\Sales.cs" />
+    <Compile Include="Models\RankingVm.cs" />
+    <Compile Include="Models\SalesVm.cs" />
+    <Compile Include="Models\CatalogVm.cs" />
+    <Compile Include="Models\StoreFrontVm.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Providers\ApplicationOAuthProvider.cs" />
     <Compile Include="Results\ChallengeResult.cs" />
     <Compile Include="Startup.cs" />
+    <Compile Include="Util\JsonHelper.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Areas\HelpPage\HelpPage.css" />
@@ -387,6 +392,16 @@
     <Content Include="packages.config" />
     <None Include="Project_Readme.html" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BeerDev.Entities\BeerDev.Entities.csproj">
+      <Project>{898e9e7b-e46e-4f5b-9921-048d9961803a}</Project>
+      <Name>BeerDev.Entities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BeerDev.Repository\BeerDev.Repository.csproj">
+      <Project>{72da4e1f-622c-4556-a48a-7042ff1709a4}</Project>
+      <Name>BeerDev.Repository</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

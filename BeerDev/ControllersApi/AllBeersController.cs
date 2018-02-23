@@ -1,23 +1,37 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Linq;
-using System.Web.Hosting;
 using System.Web.Http;
+using BeerDev.Entities;
 using BeerDev.Models;
-using Newtonsoft.Json;
+using BeerDev.Repository.Interfaces;
+using BeerDev.Repository.Repositories;
+using BeerDev.Util;
 
 namespace BeerDev.ControllersApi
 {
     public class AllBeersController : ApiController
     {
+        private readonly IBeerRepository _beerRepository;
+
+        public AllBeersController()
+        {
+            _beerRepository = new BeerRepository();
+        }
+
         public IHttpActionResult Get()
         {
-            string result;
-            using (StreamReader sr = new StreamReader(HostingEnvironment.MapPath("~/mockData/beerFront.json")))
+            IEnumerable<Beer> beers = _beerRepository.GetAll();
+            IEnumerable<CatalogVm> catalog = beers.Select(c => new CatalogVm
             {
-                result = sr.ReadToEnd();
-            }
+                Picture = c.PictureThumbnail,
+                Price = c.Price,
+                BeerId = c.Code,
+                Description = c.Description,
+                Name = c.Name
+            }).ToList();
+
+            string result = JsonHelper<CatalogVm>.Serialize(catalog);
 
             if (string.IsNullOrEmpty(result))
             {
@@ -27,20 +41,28 @@ namespace BeerDev.ControllersApi
             return Ok(result);
         }
 
+        [Route("api/AllBeers/{id}")]
         public IHttpActionResult Get(string id)
         {
-            IEnumerable<Beer> beers = new List<Beer>();
-            using (StreamReader sr = new StreamReader(HostingEnvironment.MapPath("~/mockData/beerCatalog.json")))
+            Beer beer = _beerRepository.Get(b => b.Code == id);
+
+            if (beer == null)
             {
-                beers = JsonConvert.DeserializeObject<IEnumerable<Beer>>(sr.ReadToEnd());
+                return NotFound();
             }
 
-            Beer result = beers.FirstOrDefault(b => b.beerId.Equals(id));
-
-            if (result == null)
+            BeerVm result = new BeerVm
             {
-               return NotFound();
-            }
+                Alchool = beer.Alchool,
+                BeerId = beer.Code,
+                Description = beer.Description,
+                Kind = beer.Kind,
+                Name = beer.Name,
+                Nationality = beer.Nationality,
+                Picture = beer.Picture,
+                Price = beer.Price
+            };
+
             return Ok(result);
         }
 
@@ -52,12 +74,12 @@ namespace BeerDev.ControllersApi
             const int minimum = 97;
             Random rnd = new Random();
 
-            ICollection<Sales> salesData = months.Select(month => new Sales
+            ICollection<SalesVm> salesData = months.Select(month => new SalesVm
             {
                 sales = rnd.Next(3, 13) * rnd.Next(3, 13) + minimum,
                 month = month
             }).ToList();
-
+   
             if (salesData.Any())
             {
                return Ok(salesData);

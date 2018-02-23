@@ -71,9 +71,11 @@ namespace BeerDev.Handlers
             double x = minX - measuredSize.Width;
             double y = minY - measuredSize.Height;
 
-            Hashtable result = new Hashtable();
-            result.Add("x", Convert.ToInt32(Math.Round(x)));
-            result.Add("y", Convert.ToInt32(Math.Round(y)));
+            Hashtable result = new Hashtable
+            {
+                {"x", Convert.ToInt32(Math.Round(x))},
+                {"y", Convert.ToInt32(Math.Round(y))}
+            };
 
             return result;
         }

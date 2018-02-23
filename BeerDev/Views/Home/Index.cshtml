@@ -37,35 +37,34 @@
     </div>
 </div>
 
+    @section Scripts{
+        <script src="~/Scripts/Own/script.js"></script>
+        <script>
+            $(document).ready(function () {
+                var crud = new crudNs.crud('/api/home', 'get');
+                var beers;
 
-@section Scripts{
-    <script src="~/Scripts/Own/script.js"></script>
-    <script>
-        $(document).ready(function () {
-            var crud = new crudNs.crud('/api/home', 'get');
-            var beers;
+                crud.sendRequest(function (data) {
+                    beers = JSON.parse(data);
+                    var home = new oldNs.HomePage();
+                    home.populate(beers);
 
-            crud.sendRequest(function (data) {
-                beers = JSON.parse(data);
-                var home = new oldNs.HomePage();
-                home.populate(beers);
+                    $('.productArticleName').click(function (e) {
+                        var element = e.target;
+                        var beerId = element.getAttribute('data-beerId');
+                        localStorage.setItem('beerDetails', beerId);
+                        window.location.href = "AllBeers/Details";
+                    });
 
-                $('.productArticleName').click(function (e) {
-                    var element = e.target;
-                    var beerId = element.getAttribute('data-beerId');
-                    localStorage.setItem('beerDetails', beerId);
-                    window.location.href = "AllBeers/Details";
-                });
-
-                $('.addCartButton').click(function (e) {
-                    var price = this.getAttribute('data-beerPrice');;
-                    var name = $(this).attr('data-beerName');
-                    var order = new OrderItem();
-                    order.add(name, price);
+                    $('.addCartButton').click(function (e) {
+                        var price = this.getAttribute('data-beerPrice');;
+                        var name = $(this).attr('data-beerName');
+                        var order = new OrderItem();
+                        order.add(name, price);
+                    });
                 });
             });
-        });
-    </script>
-}
+        </script>
+    }
 
 

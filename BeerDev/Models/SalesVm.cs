@@ -1,6 +1,6 @@
 ﻿namespace BeerDev.Models
 {
-    public class Sales
+    public class SalesVm
     {
         public string month { get; set; }
         public int sales { get; set; }

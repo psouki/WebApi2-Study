@@ -5,9 +5,9 @@ namespace BeerDev.ControllersApi
 {
     public class GiftsController : ApiController
     {
-        public IHttpActionResult Post(Gift gift)
+        public IHttpActionResult Post(GiftVm gift)
         {
-            GiftPromo giftPromo = new GiftPromo();
+            GiftPromoVm giftPromo = new GiftPromoVm();
 
             if (gift.InvoiceAverage == "high" || gift.CustomerCategory == "gold")
             {
