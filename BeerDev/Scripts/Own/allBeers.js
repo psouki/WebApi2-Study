@@ -92,8 +92,7 @@ allBeersNS.createLinkEventHandlers = function () {
 var loadPage = function () {
     var crud = new crudNs.crud('/api/AllBeers', 'get');
     crud.sendRequest(function(data) {
-        var beers = JSON.parse(data);
         var page = new allBeersNS.Page();
-        page.populate(beers);
+        page.populate(data);
     });
 };

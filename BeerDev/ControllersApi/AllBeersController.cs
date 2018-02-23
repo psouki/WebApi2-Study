@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
+using System.Net.Http;
 using System.Web.Http;
 using BeerDev.Entities;
 using BeerDev.Models;
@@ -30,15 +32,8 @@ namespace BeerDev.ControllersApi
                 Description = c.Description,
                 Name = c.Name
             }).ToList();
-
-            string result = JsonHelper<CatalogVm>.Serialize(catalog);
-
-            if (string.IsNullOrEmpty(result))
-            {
-                return NotFound();
-            }
-
-            return Ok(result);
+           
+            return Ok(catalog);
         }
 
         [Route("api/AllBeers/{id}")]
@@ -76,8 +71,8 @@ namespace BeerDev.ControllersApi
 
             ICollection<SalesVm> salesData = months.Select(month => new SalesVm
             {
-                sales = rnd.Next(3, 13) * rnd.Next(3, 13) + minimum,
-                month = month
+                Sales = rnd.Next(3, 13) * rnd.Next(3, 13) + minimum,
+                Month = month
             }).ToList();
    
             if (salesData.Any())

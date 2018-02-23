@@ -23,18 +23,15 @@ namespace BeerDev.ControllersApi
         public IHttpActionResult Get()
         {
             IEnumerable<Beer> beers = _repository.GetAll();
-            IEnumerable<RankingVm> rankingBeers = beers.Select(r => new RankingVm
+
+            if (beers == null) return NotFound();
+
+            IEnumerable<RankingVm> result = beers.Select(r => new RankingVm
             {
                 BeerId = r.Code,
                 Name =  r.Name
             }).ToList();
-
-            string result = JsonHelper<RankingVm>.Serialize(rankingBeers);
-            
-            if (string.IsNullOrEmpty(result))
-            {
-                return NotFound();
-            }
+           
             return Ok(result);
         }
     }

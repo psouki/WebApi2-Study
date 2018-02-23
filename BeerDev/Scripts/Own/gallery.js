@@ -83,7 +83,7 @@ galleryNS.buildSlideshow = function() {
 $(document).ready(function () {
     var crud = new crudNs.crud('/api/Gallery', 'get');
     crud.sendRequest(function(data) {
-        galleryNS.LoadJson(JSON.parse(data));
+        galleryNS.LoadJson(data);
         galleryNS.buildSlideshow();
     });
 });

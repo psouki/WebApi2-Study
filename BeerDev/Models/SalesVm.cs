@@ -2,7 +2,7 @@
 {
     public class SalesVm
     {
-        public string month { get; set; }
-        public int sales { get; set; }
+        public string Month { get; set; }
+        public int Sales { get; set; }
     }
 }

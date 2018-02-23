@@ -23,7 +23,10 @@ namespace BeerDev.ControllersApi
         public IHttpActionResult Get()
         {
             IEnumerable<StoreFront> front = _repository.GetAll(s => s.Beer);
-            IEnumerable<StoreFrontVm> frontCatalog = front.Select(c => new StoreFrontVm
+
+            if (front == null) return NotFound();
+
+            IEnumerable<StoreFrontVm> result = front.Select(c => new StoreFrontVm
             {
                 Picture = c.Beer?.PictureThumbnail,
                 Price = c.Beer?.Price ?? 0,
@@ -32,12 +35,6 @@ namespace BeerDev.ControllersApi
                 Front = c.ShowPlace
             }).ToList();
 
-            string result = JsonHelper<StoreFrontVm>.Serialize(frontCatalog);
-
-            if (string.IsNullOrEmpty(result))
-            {
-                return NotFound();
-            }
             return Ok(result);
         }
     }

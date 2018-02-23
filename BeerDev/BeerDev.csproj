@@ -327,11 +327,6 @@
     </Content>
     <Content Include="fonts\Draft Beer.eot" />
     <Content Include="fonts\Draft Beer.otf" />
-    <Content Include="mockData\beerCatalog.json" />
-    <Content Include="mockData\beerFront.json" />
-    <Content Include="mockData\beers.json" />
-    <Content Include="mockData\gallery.json" />
-    <Content Include="mockData\profile.json" />
     <Content Include="Media\PilsnerUrquell.webm" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />

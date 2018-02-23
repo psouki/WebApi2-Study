@@ -26,7 +26,8 @@ namespace BeerDev.Util
               {
                   NullValueHandling = NullValueHandling.Ignore,
                   ReferenceLoopHandling = ReferenceLoopHandling.Ignore,
-                  ContractResolver = new CamelCasePropertyNamesContractResolver()
+                  ContractResolver = new CamelCasePropertyNamesContractResolver(),
+                  Formatting = Formatting.Indented
               });
             return result;
         }

@@ -42,12 +42,10 @@
         <script>
             $(document).ready(function () {
                 var crud = new crudNs.crud('/api/home', 'get');
-                var beers;
 
                 crud.sendRequest(function (data) {
-                    beers = JSON.parse(data);
                     var home = new oldNs.HomePage();
-                    home.populate(beers);
+                    home.populate(data);
 
                     $('.productArticleName').click(function (e) {
                         var element = e.target;

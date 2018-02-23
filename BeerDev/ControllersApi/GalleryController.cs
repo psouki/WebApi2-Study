@@ -19,10 +19,9 @@ namespace BeerDev.ControllersApi
 
         public IHttpActionResult Get()
         {
-            IEnumerable<PictureGallery> pics = _repository.GetAll();
-            string result = JsonHelper<PictureGallery>.Serialize(pics);
+            IEnumerable<PictureGallery> result = _repository.GetAll();
 
-            if (string.IsNullOrEmpty(result))
+            if (result == null)
             {
                 NotFound();
             }

@@ -45,7 +45,7 @@ var loadRanking = function () {
     var beers = new Array();
     var crud = new crudNs.crud('/api/Ranking', 'get');
     crud.sendRequest(function(data) {
-        beers = JSON.parse(data);
+        beers = data;
 
         var rankingList = document.getElementById('rankingList');
         var fragment = document.createDocumentFragment();
