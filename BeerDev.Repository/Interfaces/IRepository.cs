@@ -18,6 +18,6 @@ namespace BeerDev.Repository.Interfaces
         T Get(Expression<Func<T, bool>> predicate, params Expression<Func<T, object>>[] includes);
         IEnumerable<T> Find(Expression<Func<T, bool>> predicate);
         IEnumerable<T> Find(Expression<Func<T, bool>> predicate, params Expression<Func<T, object>>[] includess);
-        void Complete();
+        void Delete(T obj);
     }
 }

@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BeerDev.Repository", "BeerD
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BeerDev.Entities", "BeerDev.Entities\BeerDev.Entities.csproj", "{898E9E7B-E46E-4F5B-9921-048D9961803A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BeerDev.Manager", "BeerDev.Manager\BeerDev.Manager.csproj", "{2E3EF2F7-DCE7-4443-9EF1-F689A89EB45D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{898E9E7B-E46E-4F5B-9921-048D9961803A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{898E9E7B-E46E-4F5B-9921-048D9961803A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{898E9E7B-E46E-4F5B-9921-048D9961803A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2E3EF2F7-DCE7-4443-9EF1-F689A89EB45D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2E3EF2F7-DCE7-4443-9EF1-F689A89EB45D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2E3EF2F7-DCE7-4443-9EF1-F689A89EB45D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2E3EF2F7-DCE7-4443-9EF1-F689A89EB45D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

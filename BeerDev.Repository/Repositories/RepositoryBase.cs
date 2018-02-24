@@ -21,6 +21,7 @@ namespace BeerDev.Repository.Repositories
         public void Add(T obj)
         {
             DbSet.Add(obj);
+            Db.SaveChanges();
         }
 
         public T GetById(int id)
@@ -41,6 +42,7 @@ namespace BeerDev.Repository.Repositories
         public void Update(T obj)
         {
             Db.Entry(obj).State = EntityState.Modified;
+            Db.SaveChanges();
         }
 
         public T Get(Expression<Func<T, bool>> predicate)
@@ -63,11 +65,11 @@ namespace BeerDev.Repository.Repositories
             return GetIncludes(includes).Where(predicate).ToList();
         }
 
-        public void Complete()
+        public void Delete(T obj)
         {
+            DbSet.Remove(obj);
             Db.SaveChanges();
         }
-
         private IQueryable<T> GetIncludes(params Expression<Func<T, object>>[] includes)
         {
             IQueryable<T> query = DbSet.AsNoTracking();

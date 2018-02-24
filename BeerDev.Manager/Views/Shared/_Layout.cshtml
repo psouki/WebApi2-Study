@@ -1,0 +1,72 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+    <header id="mainHeader">
+        <div>
+            <a class="headerLogo" href="/Views/Home/">
+                <img src="~/Images/logoSmall.png" />
+            </a>
+            <span id="headerName">devBeer Shop</span>
+        </div>
+        <div class="navbar navbar-inverse">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    @Html.ActionLink("Manager's Site", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                </div>
+                <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
+                        <li>@Html.ActionLink("Home", "Index", "Home", new { area = "" }, null)</li>
+                        <li>@Html.ActionLink("API", "Index", "Help", new { area = "" }, null)</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </header>
+    <div id="mainContent">
+        <div class="row brownComplement">
+            <div class="col-md-3">
+                <div id="welcomeImage">
+                    <img src="~/Images/beer-header.jpg" />
+                </div>
+            </div>
+        </div>
+
+        <div class="main-content">
+            @RenderBody()
+            <hr />
+            <footer class="brownComplement">
+                <p class="textContent">
+                    Address: <address>13, Main Street, 90120 San Andreas</address>
+                </p>
+                <p class="smallText">
+                    This page was generated on <time>10:21:03.123</time>
+                </p>
+                <div class="smallText">
+                    Beer Draft Font made from <a href="http://www.onlinewebfonts.com">oNline Web Fonts</a> is licensed by CC BY 3.0
+                </div>
+                <p>&copy; @DateTime.Now.Year - devBeer</p>
+            </footer>
+        </div>
+
+    </div>
+
+
+
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

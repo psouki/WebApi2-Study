@@ -61,6 +61,30 @@ namespace BeerDev.ControllersApi
             return Ok(result);
         }
 
+        [Route("api/AllBeers/beer/{id}")]
+        public IHttpActionResult GetById(int id)
+        {
+            Beer beer = _beerRepository.GetById(id);
+
+            if (beer == null)
+            {
+                return NotFound();
+            }
+
+            BeerVm result = new BeerVm
+            {
+                Alchool = beer.Alchool,
+                BeerId = beer.Code,
+                Description = beer.Description,
+                Kind = beer.Kind,
+                Name = beer.Name,
+                Nationality = beer.Nationality,
+                Picture = beer.Picture,
+                Price = beer.Price
+            };
+
+            return Ok(result);
+        }
         [Route("api/AllBeers/Sales")]
         [HttpGet]
         public IHttpActionResult GetSales()
