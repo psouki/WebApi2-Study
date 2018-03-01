@@ -1,5 +1,8 @@
 ﻿namespace BeerDev.Entities
 {
+    //As we applied the single responsibility principle
+    // this class is not polluted with database configuration
+    // it not aware that there is a database.
     public class Beer
     {
         public int BeerId { get; set; }

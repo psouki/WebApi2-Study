@@ -285,6 +285,8 @@
     <Content Include="Images\churrascoTb.jpg" />
     <Content Include="Images\corona.jpg" />
     <Content Include="Images\coronaTb.jpg" />
+    <Content Include="Images\galo_bier.JPG" />
+    <Content Include="Images\galo_bierTb.JPG" />
     <Content Include="Images\hb.jpg" />
     <Content Include="Images\hbTB.jpg" />
     <Content Include="Images\logo.png" />

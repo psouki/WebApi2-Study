@@ -1,5 +1,9 @@
 ﻿namespace BeerDev.Manager.Models
 {
+    //This is not a simple duplication of the entity
+    // this is what the view needs, it is possible to change 
+    // this DTO anytime, it will remain anemic just a DTO.
+    // It gives us flexibility
     public class BeerVm
     {
         public int BeerId { get; set; }

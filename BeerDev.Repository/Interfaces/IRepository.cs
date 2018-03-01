@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 
 namespace BeerDev.Repository.Interfaces
 {
+    //To be testable and loosely coupled, use interface is a good practice
     public interface IRepositoryBase<T> where T : class 
     {
         void Add(T obj);

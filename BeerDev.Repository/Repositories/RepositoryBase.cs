@@ -5,6 +5,11 @@ using System.Linq;
 using System.Linq.Expressions;
 using BeerDev.Repository.Interfaces;
 
+// One may thing, it is a just example of Web Api?
+// In every solution we can perceive complexity as costs
+// There are costs unavoidable and accidental so we have to chose our costs
+// As I want to keep the Web Api independent I encapsulate the data management here,
+// it is not a accidental complexity, It was a well thought decision to make the study flexible and independent
 namespace BeerDev.Repository.Repositories
 {
     public class RepositoryBase<T> : IRepositoryBase<T> where T :class
@@ -38,7 +43,10 @@ namespace BeerDev.Repository.Repositories
         {
             return GetIncludes(includes).ToList();
         }
-
+        // Usually I don't save the changes here.
+        // It's beginning, ending  and disposal are not responsibility of the repository. 
+        // Applying the separate of concerns and only responsibility principle of the SOLID
+        // the good practice is to use unit of work for those functions.
         public void Update(T obj)
         {
             Db.Entry(obj).State = EntityState.Modified;
@@ -65,6 +73,9 @@ namespace BeerDev.Repository.Repositories
             return GetIncludes(includes).Where(predicate).ToList();
         }
 
+        // As mention in the update method it not a good practice to save chance here
+        // but for simplicity sake and because it is a complexity that we don't need in this study
+        // the unit of work is not implemented.
         public void Delete(T obj)
         {
             DbSet.Remove(obj);
