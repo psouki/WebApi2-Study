@@ -1,15 +1,21 @@
 ﻿var crudNs = crudNs || {};
 
-crudNs.crud = function (url, verb, data) {
+crudNs.crud = function (url, verb, data, version) {
     this.url = url;
     this.verb = verb;
     this.data = data;
+    this.version = version;
 }
 crudNs.crud.prototype = function () {
    
     var sendRequest = function (successCallback) {
         var self = this;
 
+        if (self.version) {
+            $.ajaxSetup({
+                headers: { 'api-version': self.version }
+            });
+        }
         var options = {
             type: self.verb,
             success: successCallback

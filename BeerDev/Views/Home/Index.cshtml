@@ -41,7 +41,7 @@
         <script src="~/Scripts/Own/script.js"></script>
         <script>
             $(document).ready(function () {
-                var crud = new crudNs.crud('/api/home', 'get');
+                var crud = new crudNs.crud('/api/home', 'get', null, 2);
 
                 crud.sendRequest(function (data) {
                     var home = new oldNs.HomePage();

@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web.Http;
 using BeerDev.Entities;
+using BeerDev.Entities.Util;
 using BeerDev.Manager.Models;
 using BeerDev.Repository.Interfaces;
 using BeerDev.Repository.Repositories;
@@ -51,6 +52,27 @@ namespace BeerDev.Manager.Controllers
             return Ok(result);
         }
 
+
+        //api/beers/partial/beerid,name,nationality
+        // will returns json that has items with only those three property
+        [Route("partial/{fields}")]
+        public IHttpActionResult GetPartial(string fields)
+        {
+            IEnumerable<string> listFields = fields?.Split(',').ToList() ?? new List<string>();
+            IEnumerable<Beer> beers = _beerRepository.GetAll();
+
+            // the method CreateDataShapedObject of this class will create a dictionary with 
+            // the beer valid properties found in the listFields and theirs values
+            var iterator = new ObjectFactory<Beer>();
+
+            // this will create a list of anonymous object defined in the dictionary
+            IEnumerable<object> catalog = beers.Select(c => iterator
+            .CreateDataShapedObject(c, listFields))
+            .ToList();
+
+            return Ok(catalog);
+        }
+
         // Route api/beers/{id}
         public IHttpActionResult Get(string id)
         {
@@ -77,6 +99,7 @@ namespace BeerDev.Manager.Controllers
 
             return Ok(result);
         }
+
 
         // Route api/beers/beer/{id}
         // We use the route prefix above the facilitate extensions of routes in the methods
@@ -106,6 +129,7 @@ namespace BeerDev.Manager.Controllers
 
             return Ok(result);
         }
+
 
         //This verb is use as general purpose, but it shouldn't 
         // as soon as the resource is recoverable, that means, we know its id
@@ -143,6 +167,7 @@ namespace BeerDev.Manager.Controllers
             }
         }
 
+
         // Here we already now its is so it a better verb to use.
         // In case that we now in advance which id the resource will receive
         // it could be use the PUT as well, just because idempotent are safer.
@@ -179,6 +204,7 @@ namespace BeerDev.Manager.Controllers
             }
         }
 
+
         // DELETE: api/Beers/{id}
         public IHttpActionResult Delete(int id = 0)
         {
@@ -199,6 +225,7 @@ namespace BeerDev.Manager.Controllers
             }
 
         }
+
 
         // This is used for partial update,
         // in case that we desire to send only few properties of a large entity 
@@ -234,6 +261,7 @@ namespace BeerDev.Manager.Controllers
                 return InternalServerError();
             }
         }
+
 
         #region Auxiliary methods
         // in a real world application it will became a generic method

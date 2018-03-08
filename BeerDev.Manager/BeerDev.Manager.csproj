@@ -236,10 +236,13 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\BeersController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\StoreFrontController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Helper\VersionConstrain.cs" />
+    <Compile Include="Helper\VersionRoute.cs" />
     <Compile Include="Models\AccountBindingModels.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\BeerVm.cs" />
@@ -351,6 +354,10 @@
     <ProjectReference Include="..\BeerDev.Repository\BeerDev.Repository.csproj">
       <Project>{72da4e1f-622c-4556-a48a-7042ff1709a4}</Project>
       <Name>BeerDev.Repository</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BeerDev\BeerDev.csproj">
+      <Project>{24E644BA-8AB9-409D-8A91-ACE242EEA5B6}</Project>
+      <Name>BeerDev</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
