@@ -57,12 +57,12 @@ allBeersNS.Page.prototype = function() {
                 var beer = this.beers[item];
                 var productArticle = buildArticle(item, beer.price);
 
-                var thumb = buildThumbnail(beer.picture);
+                var thumb = buildThumbnail(beer.pictureThumbnail);
                 productArticle.appendChild(thumb);
 
                 var separator = document.createElement('hr');
 
-                var articleContent = buildContent(beer.name, beer.beerId);
+                var articleContent = buildContent(beer.name, beer.code);
                 articleContent = buildDescription(beer.description, articleContent);
                 articleContent = buildPrice(beer.price, articleContent);
                 articleContent.appendChild(separator);
@@ -90,7 +90,7 @@ allBeersNS.createLinkEventHandlers = function () {
     }
 };
 var loadPage = function () {
-    var crud = new crudNs.crud('/api/AllBeers', 'get');
+    var crud = new crudNs.crud('http://localhost:11390/api/beers', 'get');
     crud.sendRequest(function(data) {
         var page = new allBeersNS.Page();
         page.populate(data);

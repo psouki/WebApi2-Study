@@ -1,11 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using Microsoft.Owin;
+﻿using Microsoft.Owin;
 using Owin;
 
-[assembly: OwinStartup(typeof(BeerDev.Manager.Startup))]
-
+[assembly: OwinStartupAttribute(typeof(BeerDev.Manager.Startup))]
 namespace BeerDev.Manager
 {
     public partial class Startup

@@ -5,6 +5,7 @@ crudNs.crud = function (url, verb, data, version) {
     this.verb = verb;
     this.data = data;
     this.version = version;
+    this.origin =  'http://localhost:8187';
 }
 crudNs.crud.prototype = function () {
    
@@ -13,7 +14,7 @@ crudNs.crud.prototype = function () {
 
         if (self.version) {
             $.ajaxSetup({
-                headers: { 'api-version': self.version }
+                headers: { 'api-version': self.version}
             });
         }
         var options = {

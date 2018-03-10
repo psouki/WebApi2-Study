@@ -43,7 +43,9 @@ var dropped = function (e) {
 
 var loadRanking = function () {
     var beers = new Array();
-    var crud = new crudNs.crud('/api/Ranking', 'get');
+
+    // will returns json that has items with only those two property
+    var crud = new crudNs.crud('http://localhost:11390/api/beers/partial/code,name', 'get');
     crud.sendRequest(function(data) {
         beers = data;
 

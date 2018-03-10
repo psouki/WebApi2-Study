@@ -42,9 +42,7 @@ var loadPage = function () {
         beerClicked = localStorage.getItem('beerDetails');
     }
 
-    var root = location.protocol + '//' + location.host;
-    var appPath = root + '/api/AllBeers/' + beerClicked;
-    var beer;
+    var appPath = 'http://localhost:11390/api/beers/' + beerClicked;
 
     var crud = new crudNs.crud(appPath, 'get');
     crud.sendRequest(function(data) {

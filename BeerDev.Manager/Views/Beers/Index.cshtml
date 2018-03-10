@@ -1,0 +1,79 @@
+﻿@model IEnumerable<BeerDev.Manager.Models.BeerVm>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Nationality)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Kind)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Alchool)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BeerId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Picture)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PictureThumbnail)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Price)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Nationality)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Kind)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Alchool)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BeerId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Picture)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PictureThumbnail)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Price)
+        </td>
+        <td width="200">
+            @Html.ActionLink("Edit", "Edit", new {id = item.BeerId}) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.BeerId })
+        </td>
+    </tr>
+    <tr>
+        <td colspan="7">
+            @Html.DisplayFor(modelItem => item.Description)
+        </td>
+    </tr>
+}
+
+</table>

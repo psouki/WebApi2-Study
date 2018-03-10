@@ -4,7 +4,9 @@ using System.Linq;
 using Microsoft.Owin;
 using Owin;
 
-[assembly: OwinStartup(typeof(BeerDev.Startup))]
+//[assembly: OwinStartup(typeof(BeerDev.Startup))]
+[assembly: OwinStartup("BeerDevConfig", typeof(BeerDev.Startup))]
+
 
 namespace BeerDev
 {

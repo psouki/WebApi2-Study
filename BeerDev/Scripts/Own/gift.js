@@ -34,7 +34,7 @@ $(document).ready(function () {
             InvoiceAverage: 'high'
         };
 
-        var crud = new crudNs.crud('/api/gifts', 'post', profile);
+        var crud = new crudNs.crud('http://localhost:11390/api/gift', 'post', profile);
 
         crud.sendRequest(function (data) {
             giftNS.builGift(data);

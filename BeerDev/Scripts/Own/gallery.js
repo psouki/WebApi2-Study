@@ -81,7 +81,7 @@ galleryNS.buildSlideshow = function() {
 }
 
 $(document).ready(function () {
-    var crud = new crudNs.crud('/api/Gallery', 'get');
+    var crud = new crudNs.crud('http://localhost:11390/api/gallerypic', 'get');
     crud.sendRequest(function(data) {
         galleryNS.LoadJson(data);
         galleryNS.buildSlideshow();

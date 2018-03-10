@@ -69,8 +69,7 @@ chartNS.getSales = function (jsonFile) {
 var drawChart = function() {
     var canvas = document.getElementById('salesChartBar');
 
-    var root = location.protocol + '//' + location.host;
-    var appPath = root + '/api/AllBeers/Sales';
+    var appPath = 'http://localhost:11390/api/beers/sales';
 
     var crud = new crudNs.crud(appPath, 'get');
     crud.sendRequest(function (data) {
